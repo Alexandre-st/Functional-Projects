@@ -1,0 +1,23 @@
+.form-input {
+  display: flex;
+  flex-direction: column;
+}
+
+// Container général des questions avec la checkbox
+.container {
+  display: none;
+  gap: 50px;
+}
+
+// Conteneur des checkbox
+.answer {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  gap: 16px;
+}
+
+// Test avec le code déjà produit par le passé
+.composition-dropdown-content {
+  display: none;
+}
