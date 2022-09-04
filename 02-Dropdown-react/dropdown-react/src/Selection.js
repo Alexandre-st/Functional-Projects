@@ -5,8 +5,8 @@ const Selection = () => {
   return ( 
     <main>
       <div className="selections">
-        {selections.map((selection, index) => {
-          return <Composition selection={selection} key={index} />
+        {selections.map((selection) => {
+          return <Composition selection={selection} key={selection.id} />
         })}
       </div>
     </main>
