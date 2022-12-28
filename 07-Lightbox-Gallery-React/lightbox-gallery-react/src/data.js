@@ -12,3 +12,6 @@ import thumb4 from './assets/image-product-4-thumbnail.jpg';
 export const lightbox = [
   image1, image2, image3, image4, thumb1, thumb2, thumb3, thumb4
 ];
+
+export const swipers = [image1, image2, image3, image4];
+export const thumbes = [thumb1, thumb2, thumb3, thumb4];

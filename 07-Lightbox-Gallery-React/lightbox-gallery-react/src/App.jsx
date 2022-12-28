@@ -1,5 +1,4 @@
 import { useState } from 'react';
-// import Hello from './assets/image-product-1.jpg';
 import { lightbox } from './data';
 import './styles.css';
 
@@ -26,7 +25,6 @@ const App = () => {
   return (
     <div className="container">
       <h1>Hello World !</h1>
-      {/* <img src={Hello} alt="" /> */}
       <div className='image'>{imageCards}</div>
       { lightBoxDisplay 
         ? 
@@ -37,5 +35,7 @@ const App = () => {
     </div>
   );
 };
+
+// https://medium.com/swlh/creating-a-simple-lightbox-from-scratch-in-react-caea84f90960
 
 export default App;
