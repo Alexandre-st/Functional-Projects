@@ -1,0 +1,9 @@
+.container {
+  width: min(100% - 2.4rem, 111rem);
+  margin-inline: auto;
+}
+
+.image {
+  /* width: 200px; */
+  height: 400px;
+}
