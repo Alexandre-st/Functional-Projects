@@ -4,12 +4,14 @@ import About from './components/Steps/About';
 import { Confirm } from './components/Steps/Confirm';
 import Contact from './components/Steps/Contact';
 import Education from './components/Steps/Education';
+import StepIndicator from './components/Steps/StepIndicator';
 import { AppProvider } from './contexts/state';
 
 const App = () => {
   return ( 
     <AppProvider>
       <Router>
+        <StepIndicator />
         <Routes>
           <Route path='/' element={<Contact />} />
           <Route path='/education' element={<Education />} />
