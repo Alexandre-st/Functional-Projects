@@ -9,41 +9,70 @@ export const Confirm = () => {
   const submitData = (data) => {
     console.info(data);
     // Submit data to ther server
-  }
+  };
 
+  const formData = [
+    {
+      title: "Personal info",
+      url: "/",
+      items: [
+        { name: "First name", value: state.firstName, required: true },
+        { name: "Last name", value: state.lastName },
+        { name: "Email", value: state.email, required: true },
+        {
+          name: "Password",
+          value: !!state.password ? "*****" : "",
+          required: true,
+        },
+      ],
+    },
+    {
+      title: "Education",
+      url: "/education",
+      items: [
+        { name: "University", value: state.university },
+        { name: "Degree", value: state.degree },
+      ],
+    },
+    {
+      title: "About",
+      url: "/about",
+      items: [{ name: "About me", value: state.about }],
+    },
+  ];
+
+  const disableSubmit = formData.some((section) =>
+    section.items.some((item) => item.required && !item.value)
+  );
+   
   return (
     <Form onSubmit={handleSubmit(submitData)}>
       <h1>Confirm</h1>
-      <Section title='Personal info' url='/'>
-        <SectionRow>
-          <div>First name</div>
-          <div>{state.firstName}</div>
-        </SectionRow>
-        <SectionRow>
-          <div>Last Name</div>
-          <div>{state.lastName}</div>
-        </SectionRow>
-        <SectionRow>
-          <div>Email</div>
-          <div>{state.email}</div>
-        </SectionRow>
-      </Section>
-      <Section title='Education' url='/education'>
-        <SectionRow>
-          <div>University</div>
-          <div>{state.university}</div>
-        </SectionRow>
-        <SectionRow>
-          <div>Degree</div>
-          <div>{state.degree}</div>
-        </SectionRow>
-      </Section>
-      <Section title='About' url='about'>
-        <div>About me</div>
-        <div>{state.about}</div>
-      </Section>
+      {formData.map(({ title, url, items }) => (
+        <Section title={title} url={url} key={title}>
+          {/* To making require fields more visible */}
+          {items.map(({ name, value, required }) => {
+             const isMissingValue = required && !value;
+             return (
+              <SectionRow key={name}>
+                <div className={isMissingValue ? "text-warning" : ""}>
+                  {name}
+                </div>
+                <div>
+                  {isMissingValue ? (
+                    <span className="warning-sign">!!</span>
+                  ) : (
+                     value 
+                  )}
+                </div>
+              </SectionRow>
+             )
+          })}
+        </Section>
+      )
+      )}
       <div>
-        <Button>Submit</Button>
+        <Button disabled={disableSubmit}>Submit</Button>
       </div>
     </Form>
   );
