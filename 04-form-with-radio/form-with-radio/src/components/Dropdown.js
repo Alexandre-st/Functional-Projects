@@ -1,4 +1,4 @@
-import {  Field } from 'formik';
+import { Field } from 'formik';
 
 const Dropdown = ({ selection, isOpen }) => {
   return (
@@ -7,6 +7,9 @@ const Dropdown = ({ selection, isOpen }) => {
 
           <div className="text" key={index}>
             <label>
+              {/* {console.log(selection.name)}
+              {console.log(option.name)} */}
+              {/* { option.name === 'Capsule'} */}
               <Field type="radio" name={selection.name} value={option.name} />
               {option.name}
             </label>
